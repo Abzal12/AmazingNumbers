@@ -1,5 +1,7 @@
 package numbers;
 public class Properties {
+    static String[] propertyNames = {"buzz", "duck", "palindromic", "gapful", "spy", "even", "odd", "square", "sunny", "jumping"};
+    static String availableProperties = "Available properties: [BUZZ, DUCK, PALINDROMIC, GAPFUL, SPY, EVEN, ODD, SQUARE, SUNNY, JUMPING]";
     static void printInstruction() {
 
         System.out.println("""
@@ -9,12 +11,11 @@ public class Properties {
                 - enter two natural numbers to obtain the properties of the list:
                   * the first parameter represents a starting number;
                   * the second parameters show how many consecutive numbers are to be processed;
-                - two natural numbers and a property to search for;
+                - two natural numbers and two properties to search for;
                 - separate the parameters with one space;
                 - enter 0 to exit.""");
     }
-
-    static void printOneParNumProperties(String number) {
+    static void onlyOneParNum(String number) {
 
         System.out.printf("%nProperties of %s%n" +
                         "even: %b%n" +
@@ -23,118 +24,64 @@ public class Properties {
                         "duck: %b%n" +
                         "palindromic: %b%n" +
                         "gapful: %b%n" +
-                        "spy: %b%n", number, isEven(number), isOdd(number),
-                isBuzz(number), isDuck(number), isPalindromic(number), isGapful(number), isSpy(number));
+                        "spy: %b%n" +
+                        "square: %b%n" +
+                        "sunny: %b%n" +
+                        "jumping: %b%n", number, isEven(number), isOdd(number),
+                isBuzz(number), isDuck(number), isPalindromic(number), isGapful(number), isSpy(number),
+                isSquare(number), isSunny(number), isJumping(number));
     }
-
-    static void defineTwoParNum(String[] numArr) {
+    static void onlyTwoParNum(String[] numArr) {
 
         Long firstPar = Long.parseLong(numArr[0]);
         Long secondPar = Long.parseLong(numArr[1]);
         int counter = 1;
         while (counter <= secondPar) {
-
             String firstParStr = String.valueOf(firstPar);
             StringBuilder stringBuilder = new StringBuilder();
-            if (Properties.isBuzz(firstParStr)) {
-
-                stringBuilder.append("buzz, ");
-            }
-
-            if (Properties.isDuck(firstParStr)) {
-
-                stringBuilder.append("duck, ");
-            }
-
-            if (Properties.isPalindromic(firstParStr)) {
-
-                stringBuilder.append("palindromic, ");
-            }
-
-            if (Properties.isGapful(firstParStr)) {
-
-                stringBuilder.append("gapful, ");
-            }
-
-            if (Properties.isEven(firstParStr)) {
-
-                stringBuilder.append("even, ");
-            }
-
-            if (Properties.isOdd(firstParStr)) {
-
-                stringBuilder.append("odd, ");
-            }
-
-            if (Properties.isSpy(firstParStr)) {
-
-                stringBuilder.append("spy, ");
-            }
+            sbAndProperties(stringBuilder, firstParStr);
             stringBuilder.deleteCharAt(stringBuilder.length() - 1);
             stringBuilder.deleteCharAt(stringBuilder.length() - 1);
             System.out.printf("%s is %s%n", firstParStr, stringBuilder);
-
             counter++;
             firstPar += 1;
         }
     }
-    static void twoNumSearch(String[] numArr) {
+    static void twoNumSearchOneWord(String[] numArr) {
 
         Long firstPar = Long.parseLong(numArr[0]);
         Long secondPar = Long.parseLong(numArr[1]);
         int counter = 1;
-        boolean condition;
         while (counter <= secondPar) {
-
             String firstParStr = String.valueOf(firstPar);
             StringBuilder stringBuilder = new StringBuilder();
-
-            if (isBuzz(firstParStr)) {
-
-                stringBuilder.append("buzz, ");
-            }
-
-            if (isDuck(firstParStr)) {
-
-                stringBuilder.append("duck, ");
-            }
-
-            if (isPalindromic(firstParStr)) {
-
-                stringBuilder.append("palindromic, ");
-            }
-
-            if (isGapful(firstParStr)) {
-
-                stringBuilder.append("gapful, ");
-            }
-
-            if (isEven(firstParStr)) {
-
-                stringBuilder.append("even, ");
-            }
-
-            if (isOdd(firstParStr)) {
-
-                stringBuilder.append("odd, ");
-            }
-
-            if (isSpy(firstParStr)) {
-
-                stringBuilder.append("spy, ");
-            }
+            sbAndProperties(stringBuilder, firstParStr);
             stringBuilder.deleteCharAt(stringBuilder.length() - 1);
             stringBuilder.deleteCharAt(stringBuilder.length() - 1);
-
             if (HelpSearching.checkForSpecificStringWhileSearching(numArr[2], stringBuilder)) {
-
-
                 System.out.printf("%s is %s%n", firstParStr, stringBuilder);
                 counter++;
             }
-
             firstPar += 1;
+        }
+    }
+    static void twoNumSearchTwoWord(String[] numArr) {
 
+        Long firstPar = Long.parseLong(numArr[0]);
+        Long secondPar = Long.parseLong(numArr[1]);
+        int counter = 1;
+        while (counter <= secondPar) {
+            String firstParStr = String.valueOf(firstPar);
+            StringBuilder stringBuilder = new StringBuilder();
+            sbAndProperties(stringBuilder, firstParStr);
+            stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+            stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+            if (HelpSearching.checkForSpecificStringWhileSearching(numArr[2], stringBuilder) &&
+                    HelpSearching.checkForSpecificStringWhileSearching(numArr[3], stringBuilder)) {
+                System.out.printf("%s is %s%n", firstParStr, stringBuilder);
+                counter++;
+            }
+            firstPar += 1;
         }
     }
     static boolean isEven(String number) {
@@ -142,13 +89,11 @@ public class Properties {
         long evenOddNum = Long.parseLong(number);
         return evenOddNum % 2 == 0;
     }
-
     static boolean isOdd(String number) {
 
         long evenOddNum = Long.parseLong(number);
         return evenOddNum % 2 != 0;
     }
-
     static boolean isBuzz(String number) {
 
         String[] numberArr = number.split("");
@@ -176,7 +121,6 @@ public class Properties {
         String Buzzness;
         return result % 7 == 0 || removedNum == 7;
     }
-
     static boolean isDuck(String number) {
 
         boolean result = false;
@@ -191,7 +135,6 @@ public class Properties {
         }
         return result;
     }
-
     static boolean isPalindromic(String number) {
 
         boolean result = true;
@@ -205,7 +148,6 @@ public class Properties {
         }
         return result;
     }
-
     static boolean isGapful(String number) {
 
         boolean result = false;
@@ -224,7 +166,6 @@ public class Properties {
         }
         return result;
     }
-
     static boolean isSpy(String number) {
 
         int sum = 0;
@@ -236,5 +177,70 @@ public class Properties {
         }
 
         return sum == product;
+    }
+    static boolean isSquare(String number) {
+
+        boolean result = false;
+        long numInt = Long.parseLong(number);
+        long sqrtResult = (long) Math.sqrt(numInt);
+        result = sqrtResult * sqrtResult == numInt;
+        return result;
+    }
+    static boolean isSunny(String number) {
+
+        boolean result = false;
+        long numLong = Long.parseLong(number);
+        long possibleSquareLong = numLong + 1;
+        String possibleSquareStr = Long.toString(possibleSquareLong);
+        result = isSquare(possibleSquareStr);
+        return result;
+    }
+    static boolean isJumping(String number) {
+
+        boolean result = true;
+        for (int i = 0; i < number.length() - 1; i++) {
+
+            int one = Character.getNumericValue(number.charAt(i));
+            int two = Character.getNumericValue(number.charAt(i + 1));
+            if (!(Math.abs(one - two) == 1)) {
+
+                result = false;
+                break;
+            }
+        }
+        return result;
+    }
+    static void sbAndProperties(StringBuilder stringBuilder, String firstParStr) {
+
+        if (isBuzz(firstParStr)) {
+            stringBuilder.append("buzz, ");
+        }
+        if (isDuck(firstParStr)) {
+            stringBuilder.append("duck, ");
+        }
+        if (isPalindromic(firstParStr)) {
+            stringBuilder.append("palindromic, ");
+        }
+        if (isGapful(firstParStr)) {
+            stringBuilder.append("gapful, ");
+        }
+        if (isEven(firstParStr)) {
+            stringBuilder.append("even, ");
+        }
+        if (isOdd(firstParStr)) {
+            stringBuilder.append("odd, ");
+        }
+        if (isSpy(firstParStr)) {
+            stringBuilder.append("spy, ");
+        }
+        if (isSunny(firstParStr)) {
+            stringBuilder.append("sunny, ");
+        }
+        if (isSquare(firstParStr)) {
+            stringBuilder.append("square, ");
+        }
+        if (isJumping(firstParStr)) {
+            stringBuilder.append("jumping, ");
+        }
     }
 }
