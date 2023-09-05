@@ -84,6 +84,194 @@ public class Properties {
             firstPar += 1;
         }
     }
+    static void twoNumSearchThreeWord(String[] numArr) {
+
+        Long firstPar = Long.parseLong(numArr[0]);
+        Long secondPar = Long.parseLong(numArr[1]);
+        int counter = 1;
+        while (counter <= secondPar) {
+            String firstParStr = String.valueOf(firstPar);
+            StringBuilder stringBuilder = new StringBuilder();
+            sbAndProperties(stringBuilder, firstParStr);
+            stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+            stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+            if (HelpSearching.checkForSpecificStringWhileSearching(numArr[2], stringBuilder) &&
+                    HelpSearching.checkForSpecificStringWhileSearching(numArr[3], stringBuilder) &&
+                    HelpSearching.checkForSpecificStringWhileSearching(numArr[4], stringBuilder)) {
+                System.out.printf("%s is %s%n", firstParStr, stringBuilder);
+                counter++;
+            }
+            firstPar += 1;
+        }
+    }
+    static void twoNumSearchFourWord(String[] numArr) {
+
+        Long firstPar = Long.parseLong(numArr[0]);
+        Long secondPar = Long.parseLong(numArr[1]);
+        int counter = 1;
+        while (counter <= secondPar) {
+            String firstParStr = String.valueOf(firstPar);
+            StringBuilder stringBuilder = new StringBuilder();
+            sbAndProperties(stringBuilder, firstParStr);
+            stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+            stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+            if (HelpSearching.checkForSpecificStringWhileSearching(numArr[2], stringBuilder) &&
+                    HelpSearching.checkForSpecificStringWhileSearching(numArr[3], stringBuilder) &&
+                    HelpSearching.checkForSpecificStringWhileSearching(numArr[4], stringBuilder) &&
+                    HelpSearching.checkForSpecificStringWhileSearching(numArr[5], stringBuilder)) {
+                System.out.printf("%s is %s%n", firstParStr, stringBuilder);
+                counter++;
+            }
+            firstPar += 1;
+        }
+    }
+    static void twoNumSearchFiveWord(String[] numArr) {
+
+        Long firstPar = Long.parseLong(numArr[0]);
+        Long secondPar = Long.parseLong(numArr[1]);
+        int counter = 1;
+        while (counter <= secondPar) {
+            String firstParStr = String.valueOf(firstPar);
+            StringBuilder stringBuilder = new StringBuilder();
+            sbAndProperties(stringBuilder, firstParStr);
+            stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+            stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+            if (HelpSearching.checkForSpecificStringWhileSearching(numArr[2], stringBuilder) &&
+                    HelpSearching.checkForSpecificStringWhileSearching(numArr[3], stringBuilder) &&
+                    HelpSearching.checkForSpecificStringWhileSearching(numArr[4], stringBuilder) &&
+                    HelpSearching.checkForSpecificStringWhileSearching(numArr[5], stringBuilder) &&
+                    HelpSearching.checkForSpecificStringWhileSearching(numArr[6], stringBuilder)) {
+                System.out.printf("%s is %s%n", firstParStr, stringBuilder);
+                counter++;
+            }
+            firstPar += 1;
+        }
+    }
+    static void twoNumSearchSixWord(String[] numArr) {
+
+        Long firstPar = Long.parseLong(numArr[0]);
+        Long secondPar = Long.parseLong(numArr[1]);
+        int counter = 1;
+        while (counter <= secondPar) {
+            String firstParStr = String.valueOf(firstPar);
+            StringBuilder stringBuilder = new StringBuilder();
+            sbAndProperties(stringBuilder, firstParStr);
+            stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+            stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+            if (HelpSearching.checkForSpecificStringWhileSearching(numArr[2], stringBuilder) &&
+                    HelpSearching.checkForSpecificStringWhileSearching(numArr[3], stringBuilder) &&
+                    HelpSearching.checkForSpecificStringWhileSearching(numArr[4], stringBuilder) &&
+                    HelpSearching.checkForSpecificStringWhileSearching(numArr[5], stringBuilder) &&
+                    HelpSearching.checkForSpecificStringWhileSearching(numArr[6], stringBuilder) &&
+                    HelpSearching.checkForSpecificStringWhileSearching(numArr[7], stringBuilder)) {
+                System.out.printf("%s is %s%n", firstParStr, stringBuilder);
+                counter++;
+            }
+            firstPar += 1;
+        }
+    }
+    static void twoNumSearchSevenWord(String[] numArr) {
+
+        Long firstPar = Long.parseLong(numArr[0]);
+        Long secondPar = Long.parseLong(numArr[1]);
+        int counter = 1;
+        while (counter <= secondPar) {
+            String firstParStr = String.valueOf(firstPar);
+            StringBuilder stringBuilder = new StringBuilder();
+            sbAndProperties(stringBuilder, firstParStr);
+            stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+            stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+            if (HelpSearching.checkForSpecificStringWhileSearching(numArr[2], stringBuilder) &&
+                    HelpSearching.checkForSpecificStringWhileSearching(numArr[3], stringBuilder) &&
+                    HelpSearching.checkForSpecificStringWhileSearching(numArr[4], stringBuilder) &&
+                    HelpSearching.checkForSpecificStringWhileSearching(numArr[5], stringBuilder) &&
+                    HelpSearching.checkForSpecificStringWhileSearching(numArr[6], stringBuilder) &&
+                    HelpSearching.checkForSpecificStringWhileSearching(numArr[7], stringBuilder) &&
+                    HelpSearching.checkForSpecificStringWhileSearching(numArr[8], stringBuilder)) {
+                System.out.printf("%s is %s%n", firstParStr, stringBuilder);
+                counter++;
+            }
+            firstPar += 1;
+        }
+    }
+    static void twoNumSearchEightWord(String[] numArr) {
+
+        Long firstPar = Long.parseLong(numArr[0]);
+        Long secondPar = Long.parseLong(numArr[1]);
+        int counter = 1;
+        while (counter <= secondPar) {
+            String firstParStr = String.valueOf(firstPar);
+            StringBuilder stringBuilder = new StringBuilder();
+            sbAndProperties(stringBuilder, firstParStr);
+            stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+            stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+            if (HelpSearching.checkForSpecificStringWhileSearching(numArr[2], stringBuilder) &&
+                    HelpSearching.checkForSpecificStringWhileSearching(numArr[3], stringBuilder) &&
+                    HelpSearching.checkForSpecificStringWhileSearching(numArr[4], stringBuilder) &&
+                    HelpSearching.checkForSpecificStringWhileSearching(numArr[5], stringBuilder) &&
+                    HelpSearching.checkForSpecificStringWhileSearching(numArr[6], stringBuilder) &&
+                    HelpSearching.checkForSpecificStringWhileSearching(numArr[7], stringBuilder) &&
+                    HelpSearching.checkForSpecificStringWhileSearching(numArr[8], stringBuilder) &&
+                    HelpSearching.checkForSpecificStringWhileSearching(numArr[9], stringBuilder)) {
+                System.out.printf("%s is %s%n", firstParStr, stringBuilder);
+                counter++;
+            }
+            firstPar += 1;
+        }
+    }
+    static void twoNumSearchNineWord(String[] numArr) {
+
+        Long firstPar = Long.parseLong(numArr[0]);
+        Long secondPar = Long.parseLong(numArr[1]);
+        int counter = 1;
+        while (counter <= secondPar) {
+            String firstParStr = String.valueOf(firstPar);
+            StringBuilder stringBuilder = new StringBuilder();
+            sbAndProperties(stringBuilder, firstParStr);
+            stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+            stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+            if (HelpSearching.checkForSpecificStringWhileSearching(numArr[2], stringBuilder) &&
+                    HelpSearching.checkForSpecificStringWhileSearching(numArr[3], stringBuilder) &&
+                    HelpSearching.checkForSpecificStringWhileSearching(numArr[4], stringBuilder) &&
+                    HelpSearching.checkForSpecificStringWhileSearching(numArr[5], stringBuilder) &&
+                    HelpSearching.checkForSpecificStringWhileSearching(numArr[6], stringBuilder) &&
+                    HelpSearching.checkForSpecificStringWhileSearching(numArr[7], stringBuilder) &&
+                    HelpSearching.checkForSpecificStringWhileSearching(numArr[8], stringBuilder) &&
+                    HelpSearching.checkForSpecificStringWhileSearching(numArr[9], stringBuilder) &&
+                    HelpSearching.checkForSpecificStringWhileSearching(numArr[10], stringBuilder)) {
+                System.out.printf("%s is %s%n", firstParStr, stringBuilder);
+                counter++;
+            }
+            firstPar += 1;
+        }
+    }
+    static void twoNumSearchTenWord(String[] numArr) {
+
+        Long firstPar = Long.parseLong(numArr[0]);
+        Long secondPar = Long.parseLong(numArr[1]);
+        int counter = 1;
+        while (counter <= secondPar) {
+            String firstParStr = String.valueOf(firstPar);
+            StringBuilder stringBuilder = new StringBuilder();
+            sbAndProperties(stringBuilder, firstParStr);
+            stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+            stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+            if (HelpSearching.checkForSpecificStringWhileSearching(numArr[2], stringBuilder) &&
+                    HelpSearching.checkForSpecificStringWhileSearching(numArr[3], stringBuilder) &&
+                    HelpSearching.checkForSpecificStringWhileSearching(numArr[4], stringBuilder) &&
+                    HelpSearching.checkForSpecificStringWhileSearching(numArr[5], stringBuilder) &&
+                    HelpSearching.checkForSpecificStringWhileSearching(numArr[6], stringBuilder) &&
+                    HelpSearching.checkForSpecificStringWhileSearching(numArr[7], stringBuilder) &&
+                    HelpSearching.checkForSpecificStringWhileSearching(numArr[8], stringBuilder) &&
+                    HelpSearching.checkForSpecificStringWhileSearching(numArr[9], stringBuilder) &&
+                    HelpSearching.checkForSpecificStringWhileSearching(numArr[10], stringBuilder) &&
+                    HelpSearching.checkForSpecificStringWhileSearching(numArr[11], stringBuilder)) {
+                System.out.printf("%s is %s%n", firstParStr, stringBuilder);
+                counter++;
+            }
+            firstPar += 1;
+        }
+    }
     static boolean isEven(String number) {
 
         long evenOddNum = Long.parseLong(number);
