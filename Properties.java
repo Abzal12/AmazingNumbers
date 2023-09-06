@@ -1,7 +1,12 @@
 package numbers;
+
+import java.util.HashSet;
+import java.util.Set;
+
 public class Properties {
-    static String[] propertyNames = {"buzz", "duck", "palindromic", "gapful", "spy", "even", "odd", "square", "sunny", "jumping"};
-    static String availableProperties = "Available properties: [BUZZ, DUCK, PALINDROMIC, GAPFUL, SPY, EVEN, ODD, SQUARE, SUNNY, JUMPING]";
+    static String[] propertyNames = {"buzz", "duck", "palindromic", "gapful", "spy", "even", "odd", "square", "sunny", "jumping", "happy", "sad",
+            "-buzz", "-duck", "-palindromic", "-gapful", "-spy", "-even", "-odd", "-square", "-sunny", "-jumping", "-happy", "-sad"};
+    static String availableProperties = "Available properties: [BUZZ, DUCK, PALINDROMIC, GAPFUL, SPY, EVEN, ODD, SQUARE, SUNNY, JUMPING, HAPPY, SAD]";
     static void printInstruction() {
 
         System.out.println("""
@@ -27,9 +32,11 @@ public class Properties {
                         "spy: %b%n" +
                         "square: %b%n" +
                         "sunny: %b%n" +
-                        "jumping: %b%n", number, isEven(number), isOdd(number),
+                        "jumping: %b%n" +
+                        "happy: %b%n" +
+                        "sad: %b%n", number, isEven(number), isOdd(number),
                 isBuzz(number), isDuck(number), isPalindromic(number), isGapful(number), isSpy(number),
-                isSquare(number), isSunny(number), isJumping(number));
+                isSquare(number), isSunny(number), isJumping(number), isHappy(number), isSad(number));
     }
     static void onlyTwoParNum(String[] numArr) {
 
@@ -58,9 +65,17 @@ public class Properties {
             sbAndProperties(stringBuilder, firstParStr);
             stringBuilder.deleteCharAt(stringBuilder.length() - 1);
             stringBuilder.deleteCharAt(stringBuilder.length() - 1);
-            if (HelpSearching.checkForSpecificStringWhileSearching(numArr[2], stringBuilder)) {
-                System.out.printf("%s is %s%n", firstParStr, stringBuilder);
-                counter++;
+            if (numArr[2].charAt(0) == '-') {
+                String num2 = numArr[2].substring(1);
+                if (!HelpSearching.checkForSpecificStringWhileSearching(num2, stringBuilder)) {
+                    System.out.printf("%s is %s%n", firstParStr, stringBuilder);
+                    counter++;
+                }
+            } else {
+                if (HelpSearching.checkForSpecificStringWhileSearching(numArr[2], stringBuilder)) {
+                    System.out.printf("%s is %s%n", firstParStr, stringBuilder);
+                    counter++;
+                }
             }
             firstPar += 1;
         }
@@ -398,6 +413,39 @@ public class Properties {
         }
         return result;
     }
+    static boolean isHappy(String number1) {
+        int number = Integer.parseInt(number1);
+        Set<Integer> digits=new HashSet<Integer>();
+        while(digits.add(number))
+        {
+            int result = 0;
+            while(number > 0)
+            {
+                result += Math.pow(number % 10, 2);
+                number = number/10;
+            }
+            number = result;
+        }
+        return number == 1;
+    }
+    static boolean isSad(String number1) {
+
+        {
+            int number = Integer.parseInt(number1);
+            Set<Integer> digits=new HashSet<Integer>();
+            while(digits.add(number))
+            {
+                int result = 0;
+                while(number > 0)
+                {
+                    result += Math.pow(number % 10, 2);
+                    number = number/10;
+                }
+                number = result;
+            }
+            return number != 1;
+        }
+    }
     static void sbAndProperties(StringBuilder stringBuilder, String firstParStr) {
 
         if (isBuzz(firstParStr)) {
@@ -429,6 +477,12 @@ public class Properties {
         }
         if (isJumping(firstParStr)) {
             stringBuilder.append("jumping, ");
+        }
+        if (isHappy(firstParStr)) {
+            stringBuilder.append("happy, ");
+        }
+        if (isSad(firstParStr)) {
+            stringBuilder.append("sad, ");
         }
     }
 }

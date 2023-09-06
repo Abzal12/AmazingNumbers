@@ -37,15 +37,6 @@ public class DoWhileClass {
 
                         continue;
                     }
-//                    if (!numArr[0].matches("[0-9]+")) {
-//
-//                        System.out.println("The first parameter should be a natural number or zero.");
-//                        continue;
-//                    } else if (!numArr[1].matches("[0-9]+")) {
-//
-//                        System.out.println("The second parameter should be a natural number");
-//                        continue;
-//                    }
                     Properties.onlyTwoParNum(numArr);
                 } else if (numArr.length == 3) {
 
@@ -54,18 +45,18 @@ public class DoWhileClass {
                         continue;
                     } else {
 
-                        String text = String.format("The property [%s] is wrong.\n" + Properties.availableProperties, numArr[2].toUpperCase());
+                        if (Errors.errorTwoParsPlusProperties(numArr)) {
+
+                            continue;
+                        };
                         String numArr2Up = numArr[2].toLowerCase();
                         for (String s : Properties.propertyNames) {
 
                             if (numArr2Up.equals(s)) {
 
                                 Properties.twoNumSearchOneWord(numArr);
-                                text = "";
-                                break;
                             }
                         }
-                        System.out.print(text);
                     }
                 }else if (numArr.length == 4) {
 
@@ -85,28 +76,6 @@ public class DoWhileClass {
                         }
 
                         Properties.twoNumSearchTwoWord(numArr);
-
-//                        String numArr2Up = numArr[2].toLowerCase();
-//                        String numArr3Up = numArr[3].toLowerCase();
-//                        boolean result1 = false;
-//                        boolean result2 = false;
-//                        for (String s : Properties.propertyNames) {
-//                            if (numArr2Up.equals(s)) {
-//                                result1 = true;
-//                                break;
-//                            }
-//                        }
-//
-//                        for (String s : Properties.propertyNames) {
-//                            if (numArr3Up.equals(s)) {
-//                                result2 = true;
-//                                break;
-//                            }
-//                        }
-//
-//                        if (result1 && result2) {
-//                            Properties.twoNumSearchTwoWord(numArr);
-//                        }
                     }
                 } else if (numArr.length == 5) {
 

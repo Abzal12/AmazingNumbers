@@ -6,6 +6,15 @@ public class Errors {
 
         boolean error = true;
         switch (numArr.length) {
+            case 3 -> {
+                if (!HelpSearching.checkForForthElement(Properties.propertyNames, numArr[2])) {
+
+                    String text = String.format("The property [%s] is wrong.\n" + Properties.availableProperties, numArr[2].toUpperCase());
+                } else  {
+
+                    error = false;
+                }
+            }
             case 4 -> {
                 if (!HelpSearching.checkForForthElement(Properties.propertyNames, numArr[2])
                         && !HelpSearching.checkForForthElement(Properties.propertyNames, numArr[3])) {
@@ -333,9 +342,13 @@ public class Errors {
 
             System.out.println("The request contains mutually exclusive properties: [SPY, DUCK]\n" +
                     "There are no numbers with these properties.");
+        } else if (contains(numArr, "happy") && contains(numArr, "sad")) {
+
+            System.out.println("The request contains mutually exclusive properties: [HAPPY, SAD]\n" +
+                    "There are no numbers with these properties.");
         } else {
 
-            errorMutuality =false;
+            errorMutuality = false;
         }
         return errorMutuality;
     }
